@@ -1,0 +1,61 @@
+name: check_mergeable
+
+on:
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: "1.22.5"
+
+      - name: Build
+        run: |
+          pwd
+          cd cmd/api
+          go build -v ./...
+
+  fmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: "1.22.5"
+
+      - name: Format
+        run: |
+          base_dir=$(pwd)
+          for p in `find . -name go.mod | xargs dirname`; do
+            cd $p;
+            result_p=$(gofmt -l .)
+            [ -z "${result_p}" ] || exit 1;
+            cd $base_dir;
+          done
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: "1.22.5"
+
+      - name: Test
+        run: |
+          base_dir=$(pwd)
+          for p in `find . -name go.mod | xargs dirname`; do
+            cd $p;
+            go test -v;
+            cd $base_dir;
+          done
