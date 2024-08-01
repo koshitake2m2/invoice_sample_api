@@ -13,6 +13,8 @@ func hello(c echo.Context) error {
 func main() {
 	e := echo.New()
 
+	// FIXME: diをしたものを利用してエンドポイントを登録してください.
+
 	e.GET("/", hello)
 
 	e.Logger.Fatal(e.Start(":8080"))

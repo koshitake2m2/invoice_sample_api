@@ -3,7 +3,12 @@ module invoice_sample_api/internal/invoice/presentation
 go 1.22.5
 
 require (
-	github.com/labstack/echo/v4 v4.12.0 // indirect
+	github.com/labstack/echo/v4 v4.12.0
+	invoice_sample_api/internal/invoice/domain v0.0.0-00010101000000-000000000000
+	invoice_sample_api/internal/invoice/usecase v0.0.0-00010101000000-000000000000
+)
+
+require (
 	github.com/labstack/gommon v0.4.2 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
@@ -13,8 +18,11 @@ require (
 	golang.org/x/net v0.24.0 // indirect
 	golang.org/x/sys v0.19.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
+	invoice_sample_api/internal/base v0.0.0-00010101000000-000000000000 // indirect
 )
 
 replace invoice_sample_api/internal/base => ../../base
+
 replace invoice_sample_api/internal/invoice/domain => ../domain
+
 replace invoice_sample_api/internal/invoice/usecase => ../usecase
