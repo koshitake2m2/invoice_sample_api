@@ -3,6 +3,7 @@ package libs
 type IOContext interface {
 }
 
+// FIXME: 型を安全に利用できるように修正してください.
 type IOResult struct {
 	V interface{}
 }
