@@ -15,9 +15,10 @@ exec $SHELL -l
 goenv install 1.22.5
 goenv local 1.22.5
 go install github.com/air-verse/air@latest
+go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 ```
 
-## Run
+## Tips
 
 ### Run Server
 
@@ -53,4 +54,27 @@ air
 
 ```bash
 ./scripts/test.sh
+```
+
+### Local DB
+
+以下でローカルのDBの起動・停止・アクセス・マイグレーションを行います.
+
+```bash
+# Docker
+docker compose -f build/package/postgres/compose.yml up -d
+docker compose -f build/package/postgres/compose.yml down
+
+# Envs
+DB_NAME=mydb
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=password
+
+# Access
+psql -p $DB_PORT -U $DB_USER -d $DB_NAME -h $DB_HOST
+
+# Migrate
+migrate --path migrations --database "postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable" -verbose up
 ```

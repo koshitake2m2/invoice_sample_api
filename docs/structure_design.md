@@ -11,6 +11,7 @@
 
 ```plaintext
 .
+├── build
 ├── cmd                
 │   └── api
 ├── docs
@@ -26,6 +27,7 @@
 └── scripts
 ```
 
+- build: コンテナやビルドに関する設定ファイルを配置
 - cmd: 実行可能なプロジェクト
   - api: APIサーバー
 - docs: ドキュメントを配置

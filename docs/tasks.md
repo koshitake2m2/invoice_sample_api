@@ -12,7 +12,7 @@
 - [x] serverをダミーで起動
 - [x] CI環境
 - [x] ドキュメント作成 設計
-- [ ] DBテーブル作成
+- [x] DBテーブル作成
 - [ ] ユースケース 請求書データ作成 Interface定義(request type, response type)
 - [ ] ユースケース 請求書データ一覧取得 Interface定義(request type, response type)
 - [ ] ドキュメント作成(request type, response type) Interface & example
