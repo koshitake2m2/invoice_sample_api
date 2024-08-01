@@ -1,11 +1,16 @@
 # invoice_sample_api
 
 ## Abstract
+
 請求書管理を題材にしたAPIサーバーのサンプルです.
 
 ## Documents
 
+以下にドキュメントをまとめています.
+
 - [ディレクトリ・モジュール設計](./docs/structure_design.md)
+- [API仕様書](./docs/api.md)
+- [タスク管理](./docs/tasks.md)
 
 ## Setup
 
