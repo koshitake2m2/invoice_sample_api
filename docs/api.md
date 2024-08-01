@@ -14,6 +14,7 @@ POST /api/invoices
 
 ```json
 {
+  "client_id": 1,
   "issue_date": "2023-07-01",
   "payment_amount": 1000.00,
   "fee": 50.00,

@@ -9,6 +9,7 @@ import (
 */
 type CreateInvoiceRequest struct {
 	IssueDate          time.Time `json:"issue_date"`
+	ClientID           int64     `json:"client_id"`
 	PaymentAmount      float64   `json:"payment_amount"`
 	Fee                float64   `json:"fee"`
 	FeeRate            float64   `json:"fee_rate"`
